@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6E44DAE5-D8FD-4EAD-BFA7-6E109D633E2F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ISET_2020_Découverte_WinForm</RootNamespace>
+    <AssemblyName>ISET 2020 Découverte WinForm</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ISET2018_CouAcces">
+      <HintPath>..\..\ISET2018_CouGestion\ISET2018_CouGestion\bin\Debug\ISET2018_CouAcces.dll</HintPath>
+    </Reference>
+    <Reference Include="ISET2018_CouClasses">
+      <HintPath>..\..\ISET2018_CouGestion\ISET2018_CouGestion\bin\Debug\ISET2018_CouClasses.dll</HintPath>
+    </Reference>
+    <Reference Include="ISET2018_CouGestion">
+      <HintPath>..\..\ISET2018_CouGestion\ISET2018_CouGestion\bin\Debug\ISET2018_CouGestion.dll</HintPath>
+    </Reference>
+    <Reference Include="ISET2020userControles">
+      <HintPath>..\..\ISET2020userControles\ISET2020userControles\bin\Debug\ISET2020userControles.dll</HintPath>
+    </Reference>
+    <Reference Include="ISET2020userControles2">
+      <HintPath>..\..\ISET2020userControles2\ISET2020userControles2\bin\Debug\ISET2020userControles2.dll</HintPath>
+    </Reference>
+    <Reference Include="ISET2020UserControlSpiro">
+      <HintPath>..\..\ISET2020UserControlSpiro\ISET2020UserControlSpiro\bin\Debug\ISET2020UserControlSpiro.dll</HintPath>
+    </Reference>
+    <Reference Include="ISET2020UserSpino">
+      <HintPath>..\..\ISET2020UserSpino\ISET2020UserSpino\bin\Debug\ISET2020UserSpino.dll</HintPath>
+    </Reference>
+    <Reference Include="SpiroContrôleEntree">
+      <HintPath>..\..\SpiroContrôleEntree\SpiroContrôleEntree\bin\Debug\SpiroContrôleEntree.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Apropos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apropos.Designer.cs">
+      <DependentUpon>Apropos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dbPerso.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbPerso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FicAcceuil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicAcceuil.Designer.cs">
+      <DependentUpon>FicAcceuil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicBDBasique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicBDBasique.Designer.cs">
+      <DependentUpon>FicBDBasique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicBDCouche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicBDCouche.Designer.cs">
+      <DependentUpon>FicBDCouche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicBDDataset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicBDDataset.Designer.cs">
+      <DependentUpon>FicBDDataset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicCarte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicCarte.Designer.cs">
+      <DependentUpon>FicCarte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicClavierSouris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicClavierSouris.Designer.cs">
+      <DependentUpon>FicClavierSouris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicEditeur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicEditeur.Designer.cs">
+      <DependentUpon>FicEditeur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicHorloge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicHorloge.Designer.cs">
+      <DependentUpon>FicHorloge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicLectureGPS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicLectureGPS.Designer.cs">
+      <DependentUpon>FicLectureGPS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicListe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicListe.Designer.cs">
+      <DependentUpon>FicListe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicNavigateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicNavigateur.Designer.cs">
+      <DependentUpon>FicNavigateur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicPhilosophe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicPhilosophe.Designer.cs">
+      <DependentUpon>FicPhilosophe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicPrincipal.Designer.cs">
+      <DependentUpon>FicPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicProcessusThreads.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicProcessusThreads.Designer.cs">
+      <DependentUpon>FicProcessusThreads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicSerialisation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicSerialisation.Designer.cs">
+      <DependentUpon>FicSerialisation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicSpirographe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicSpirographe.Designer.cs">
+      <DependentUpon>FicSpirographe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FicSpirographe2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicSpirographe2.Designer.cs">
+      <DependentUpon>FicSpirographe2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Progression.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Progression.Designer.cs">
+      <DependentUpon>Progression.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Apropos.resx">
+      <DependentUpon>Apropos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicAcceuil.resx">
+      <DependentUpon>FicAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicBDBasique.resx">
+      <DependentUpon>FicBDBasique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicBDCouche.resx">
+      <DependentUpon>FicBDCouche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicBDDataset.resx">
+      <DependentUpon>FicBDDataset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicCarte.resx">
+      <DependentUpon>FicCarte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicClavierSouris.resx">
+      <DependentUpon>FicClavierSouris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicEditeur.resx">
+      <DependentUpon>FicEditeur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicHorloge.resx">
+      <DependentUpon>FicHorloge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicLectureGPS.resx">
+      <DependentUpon>FicLectureGPS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicListe.resx">
+      <DependentUpon>FicListe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicNavigateur.resx">
+      <DependentUpon>FicNavigateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicPhilosophe.resx">
+      <DependentUpon>FicPhilosophe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicPrincipal.resx">
+      <DependentUpon>FicPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicProcessusThreads.resx">
+      <DependentUpon>FicProcessusThreads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicSerialisation.resx">
+      <DependentUpon>FicSerialisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicSpirographe.resx">
+      <DependentUpon>FicSpirographe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicSpirographe2.resx">
+      <DependentUpon>FicSpirographe2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Progression.resx">
+      <DependentUpon>Progression.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="dbPerso.xsc">
+      <DependentUpon>dbPerso.xsd</DependentUpon>
+    </None>
+    <None Include="dbPerso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbPerso.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dbPerso.xss">
+      <DependentUpon>dbPerso.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webcam-toy-photo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webcam-toy-photo11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HEL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\46519517_515989682215356_2729004365699350528_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filenew.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fileopen.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filesave.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doorshut.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICTrait.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICFond.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WETBApparence.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="perso.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
