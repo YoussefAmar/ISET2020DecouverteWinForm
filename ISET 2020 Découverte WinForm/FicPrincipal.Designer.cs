@@ -265,6 +265,7 @@
             this.maIntegration.Name = "maIntegration";
             this.maIntegration.Size = new System.Drawing.Size(312, 30);
             this.maIntegration.Text = "Intégration";
+            this.maIntegration.Click += new System.EventHandler(this.maIntegration_Click);
             // 
             // EcranPrincipal
             // 

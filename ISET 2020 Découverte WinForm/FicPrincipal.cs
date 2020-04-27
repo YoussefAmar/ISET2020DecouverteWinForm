@@ -138,7 +138,10 @@ namespace ISET_2020_Découverte_WinForm
             f.ShowDialog();
         }
 
-
-
+        private void maIntegration_Click(object sender, EventArgs e)
+        {
+            EcranIntegration f = new EcranIntegration();
+            f.ShowDialog();
+        }
     }
 }

@@ -129,6 +129,12 @@
     <Compile Include="FicHorloge.Designer.cs">
       <DependentUpon>FicHorloge.cs</DependentUpon>
     </Compile>
+    <Compile Include="FicIntegration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicIntegration.Designer.cs">
+      <DependentUpon>FicIntegration.cs</DependentUpon>
+    </Compile>
     <Compile Include="FicLectureGPS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FicHorloge.resx">
       <DependentUpon>FicHorloge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicIntegration.resx">
+      <DependentUpon>FicIntegration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FicLectureGPS.resx">
       <DependentUpon>FicLectureGPS.cs</DependentUpon>
