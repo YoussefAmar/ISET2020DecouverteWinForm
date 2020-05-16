@@ -143,5 +143,11 @@ namespace ISET_2020_Découverte_WinForm
             EcranIntegration f = new EcranIntegration();
             f.ShowDialog();
         }
+
+        private void maVenteDeTickets_Click(object sender, EventArgs e)
+        {
+            EcranVenteTickets f = new EcranVenteTickets();
+            f.ShowDialog();
+        }
     }
 }
