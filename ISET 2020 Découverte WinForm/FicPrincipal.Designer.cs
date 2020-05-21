@@ -48,12 +48,13 @@
             this.dinerPhilo = new System.Windows.Forms.ToolStripMenuItem();
             this.maSerialisation = new System.Windows.Forms.ToolStripMenuItem();
             this.maIntegration = new System.Windows.Forms.ToolStripMenuItem();
+            this.maVenteDeTickets = new System.Windows.Forms.ToolStripMenuItem();
             this.mPropos = new System.Windows.Forms.ToolStripMenuItem();
             this.mpPropos = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnColore = new ISET2020userControles.BoutonColore();
             this.frequence1 = new SpiroContrôleEntree.Frequence();
             this.spirographe21 = new ISET2020UserControlSpiro.Spirographe2();
-            this.maVenteDeTickets = new System.Windows.Forms.ToolStripMenuItem();
+            this.maExpressionRégulière = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spirographe21)).BeginInit();
             this.SuspendLayout();
@@ -126,7 +127,8 @@
             this.dinerPhilo,
             this.maSerialisation,
             this.maIntegration,
-            this.maVenteDeTickets});
+            this.maVenteDeTickets,
+            this.maExpressionRégulière});
             this.mAppli.Name = "mAppli";
             this.mAppli.Size = new System.Drawing.Size(122, 29);
             this.mAppli.Text = "Applications";
@@ -215,6 +217,13 @@
             this.maIntegration.Text = "Intégration";
             this.maIntegration.Click += new System.EventHandler(this.maIntegration_Click);
             // 
+            // maVenteDeTickets
+            // 
+            this.maVenteDeTickets.Name = "maVenteDeTickets";
+            this.maVenteDeTickets.Size = new System.Drawing.Size(312, 30);
+            this.maVenteDeTickets.Text = "Vente de tickets";
+            this.maVenteDeTickets.Click += new System.EventHandler(this.maVenteDeTickets_Click);
+            // 
             // mPropos
             // 
             this.mPropos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -269,12 +278,12 @@
             this.spirographe21.TabIndex = 2;
             this.spirographe21.TabStop = false;
             // 
-            // maVenteDeTickets
+            // maExpressionRégulière
             // 
-            this.maVenteDeTickets.Name = "maVenteDeTickets";
-            this.maVenteDeTickets.Size = new System.Drawing.Size(312, 30);
-            this.maVenteDeTickets.Text = "Vente de tickets";
-            this.maVenteDeTickets.Click += new System.EventHandler(this.maVenteDeTickets_Click);
+            this.maExpressionRégulière.Name = "maExpressionRégulière";
+            this.maExpressionRégulière.Size = new System.Drawing.Size(312, 30);
+            this.maExpressionRégulière.Text = "Expression régulière";
+            this.maExpressionRégulière.Click += new System.EventHandler(this.maExpressionRégulière_Click);
             // 
             // EcranPrincipal
             // 
@@ -324,6 +333,7 @@
         private System.Windows.Forms.ToolStripMenuItem maSerialisation;
         private System.Windows.Forms.ToolStripMenuItem maIntegration;
         private System.Windows.Forms.ToolStripMenuItem maVenteDeTickets;
+        private System.Windows.Forms.ToolStripMenuItem maExpressionRégulière;
         //private ISET2020UserControlSpiro.Spirographe2 spirographe21;
     }
 }

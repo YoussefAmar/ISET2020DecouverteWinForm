@@ -123,6 +123,12 @@
     <Compile Include="FicEditeur.Designer.cs">
       <DependentUpon>FicEditeur.cs</DependentUpon>
     </Compile>
+    <Compile Include="FicExpressionReguliere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FicExpressionReguliere.Designer.cs">
+      <DependentUpon>FicExpressionReguliere.cs</DependentUpon>
+    </Compile>
     <Compile Include="FicHorloge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FicEditeur.resx">
       <DependentUpon>FicEditeur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FicExpressionReguliere.resx">
+      <DependentUpon>FicExpressionReguliere.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FicHorloge.resx">
       <DependentUpon>FicHorloge.cs</DependentUpon>
