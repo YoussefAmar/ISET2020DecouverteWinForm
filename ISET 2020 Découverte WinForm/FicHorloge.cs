@@ -39,7 +39,7 @@ namespace ISET_2020_Découverte_WinForm
             int xc = ClientSize.Width / 2;
             int yc = ClientSize.Height / 2;
 
-            //Coordonée du centre de l'écran
+            //Coordonnée du centre de l'écran
 
 
             int rayon = Math.Min(ClientSize.Height / 3, ClientSize.Width / 3);
@@ -97,7 +97,7 @@ namespace ISET_2020_Découverte_WinForm
             m = DateTime.Now.Minute;
             h = DateTime.Now.Hour;
 
-            //Invalidate permet de coordonée le tick avec la pictureBox
+            //Invalidate permet de coordonnée le tick avec la pictureBox
             // on initialise nos variables au moments actuels à chaque passage du tick (1000 ms)
 
         }

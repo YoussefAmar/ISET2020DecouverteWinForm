@@ -65,7 +65,7 @@ namespace ISET_2020_Découverte_WinForm
             tnRacine = new TreeNode("Poste de travail", 0, 0);
 
             tvRepertoire.Nodes.Add(tnRacine);
-            string[] OrdiDisques = Environment.GetLogicalDrives();
+            string[] OrdiDisques = Environment.GetLogicalDrives(); //stocke dans un tableau les lecteurs de l'ordi
 
             foreach(string NomDisque in OrdiDisques)
             {
@@ -78,7 +78,7 @@ namespace ISET_2020_Découverte_WinForm
 
             tsslMessage.Text = "";
 
-            Cursor = Curseur;
+            Cursor = Curseur; //On est plus en attente
 
         }
 
@@ -88,7 +88,7 @@ namespace ISET_2020_Découverte_WinForm
             {
                 try
                 {
-                    string[] sRepertoires = Directory.GetDirectories(nd);
+                    string[] sRepertoires = Directory.GetDirectories(nd); //récupères les sous répertoires
 
                     string s1 = "", s2 = "";
 

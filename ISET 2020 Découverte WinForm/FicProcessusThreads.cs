@@ -14,7 +14,7 @@ namespace ISET_2020_Découverte_WinForm
 {
     public partial class EcranProcessusThreads : Form
     {
-        private Process pProcessus = null;
+        private Process pProcessus = null; //Manipule des processus
         private List<string> lCommun = null;
         private Random r = new Random();
 
@@ -33,34 +33,33 @@ namespace ISET_2020_Découverte_WinForm
 
         private void btnProcessus2_Click(object sender, EventArgs e)
         {
-            if (pProcessus == null || pProcessus.HasExited)
+            if (pProcessus == null || pProcessus.HasExited) //Si pprocessus est null et si est finis
             {
                 lbConsole.Items.Clear();
                 lbConsole.Items.Add("Chargement du bloc notes");
                 //pProcessus = Process.Start("notepad");
-                pProcessus = new Process();
-                pProcessus.StartInfo.FileName = "notepad";
-                pProcessus.Start();
-                //Start info permet d'obtenir un certain nombre d'information
+                pProcessus = new Process(); //Declare la variable comme processus
+                pProcessus.StartInfo.FileName = "notepad"; //envoi le nom du programme au processus afin de le lancer à la commande suivante
+                //Start info permet d'obtenir un certain nombre d'information avant d'utiliser la commande start
+                pProcessus.Start();        
                 //pProcessus.Exited += new EventHandler(myProcess_Exited);
                 lbConsole.Items.Add("Bloc notes chargé");
                 pProcessus.WaitForExit();
                 lbConsole.Items.Add("Début : " + pProcessus.StartTime);
                 lbConsole.Items.Add("Fin : " + pProcessus.ExitTime);
                 lbConsole.Items.Add("Durée : " + (pProcessus.ExitTime - pProcessus.StartTime));
-                //On garde le processus dans une variable
             }
         }
 
         private void EcranProcessusThreads_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(pProcessus != null)
+            if(pProcessus != null) //si la variable est initialisé 
             {
-                if(!pProcessus.HasExited)
+                if(!pProcessus.HasExited) //Si le processus est toujours actif
                 {
                     pProcessus.Kill();
                     pProcessus.WaitForExit();
-                    //On le tue et on attend qu'on soit sorti
+                    //On le tue et on attend qu'on soit sorti avant de fermer l'ecran
                 }
             }
         }
@@ -74,8 +73,9 @@ namespace ISET_2020_Découverte_WinForm
         {
             Process p = new Process();
 
-            p.StartInfo.FileName = "ISET2020_Programme_secondaire";
-            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.FileName = "ISET2020_Programme_secondaire"; //chemin du programme envoyer au processus
+            p.StartInfo.UseShellExecute = false; //true si le shell doit être utilisé lors du démarrage du processus ; false si le processus doit être créé directement à partir du fichier exécutable
+            //Le terme « Shell » dans ce contexte fait référence à un interpréteur de commandes graphique
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
             lbConsole.Items.Clear();
@@ -85,8 +85,8 @@ namespace ISET_2020_Découverte_WinForm
                 lbConsole.Items.Add("Chargement de ISET2020_Programme_secondaire");
                 p.Start();
                 lbConsole.Items.Add("Transfert de données");
-                p.StandardInput.WriteLine("Largo");
-                p.StandardInput.WriteLine("Winch");
+                p.StandardInput.WriteLine("Amar");
+                p.StandardInput.WriteLine("Youssef");
 
                 lbConsole.Items.Add("Récupération du traitement");
 
@@ -101,12 +101,14 @@ namespace ISET_2020_Découverte_WinForm
             // Thread sont les fonctions d'un processus que l'on peut appeler
             lbConsole.Items.Clear();
             lCommun = new List <string>();
-            Thread ta = new Thread(new ThreadStart(a));
+            Thread ta = new Thread(new ThreadStart(a)); //Methode lancée sur le thread
             Thread tb = new Thread(new ThreadStart(b));
-            ta.Start();
+            ta.Start(); //Lancement du thread
             tb.Start();
             ta.Join();
             tb.Join();
+            //Join est une méthode de synchronisation qui bloque le thread appelant (autrement dit, le thread qui appelle la méthode) jusqu’à ce que le thread dont la méthode Join est appelée est terminé.
+            //Utilisez cette méthode pour vous assurer qu’un thread a été arrêté
             foreach (string s in lCommun)
 
             lbConsole.Items.Add(s);

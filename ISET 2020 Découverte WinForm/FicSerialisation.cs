@@ -19,7 +19,7 @@ namespace ISET_2020_Découverte_WinForm
         {
             InitializeComponent();
         }
-
+        #region classe preparee
         private void bClassePreparer_Click(object sender, EventArgs e)
         {
             PersonneSerialisable ps = new PersonneSerialisable(1,"Largo","Winch", new DateTime(1975, 7, 15));
@@ -53,7 +53,7 @@ namespace ISET_2020_Découverte_WinForm
             [XmlElement("Nom")]
             public string Nom { get; set; }
 
-            [XmlIgnore] //Ignore la classe, n'apparait pas dans le fichier xmm
+            [XmlIgnore] //Ignore la classe, n'apparait pas dans le fichier xlm
             public DateTime Naissance { get; set; }
 
             [XmlArray("Liste")] //liste de champ
@@ -106,6 +106,9 @@ namespace ISET_2020_Découverte_WinForm
             }
 
         }
+
+        #endregion
+
         public class Personne
         {
             public int ID { get; set; }
@@ -130,9 +133,10 @@ namespace ISET_2020_Découverte_WinForm
             }
         }
 
+        #region hard
         private void bHardSerialiser_Click(object sender, EventArgs e)
         {
-            Personne p = new Personne(1, "Largo", "Winch", new DateTime(1975, 7, 15));
+            Personne p = new Personne(1, "Youssef", "Winch", new DateTime(1975, 7, 15));
 
             p.Lst.Add("Danitza");
             p.Lst.Add("Charity");
@@ -185,9 +189,10 @@ namespace ISET_2020_Découverte_WinForm
             Personne pRep = new Personne();
             using (XmlTextReader xr = new XmlTextReader(sFichier))
             {
-                while(xr.Read()) //Tant qu'il y a quelque chose à lire dans le fichier
-                
-                    if(xr.Name == "Personne") //On rentre seulement quand on rencontre la balise personne
+                while (xr.Read())
+                //Tant qu'il y a quelque chose à lire dans le fichier
+
+                    if (xr.Name == "Personne") //On rentre seulement quand on rencontre la balise personne
                     {
                         xr.MoveToAttribute("Identifiant"); //On se déplace vers l'attribut identifiant pour récupérer l'id de la personne
                         pRep.ID = xr.ReadContentAsInt(); //Récupération de l'id sous forme de int
@@ -195,11 +200,11 @@ namespace ISET_2020_Découverte_WinForm
                         pRep.Prenom = xr.ReadElementContentAsString(); //Va recherche la valeur et passe directement au suivant par après
                         pRep.Nom = xr.ReadElementContentAsString();
 
-                        if(xr.Name == "Liste" && !xr.IsEmptyElement) //On vérifie que la liste est bien instanciée et qu'il y a bien des éléments dedans
+                        if (xr.Name == "Liste" && !xr.IsEmptyElement) //On vérifie que la liste est bien instanciée et qu'il y a bien des éléments dedans
                         {
                             xr.Read();
 
-                            while(xr.Name == "Conquête")
+                            while (xr.Name == "Conquête")
 
                                 pRep.Lst.Add(xr.ReadElementContentAsString()); //On ajoute les éléments de la liste tant qu'il y en a dans conquête                           
 
@@ -207,13 +212,16 @@ namespace ISET_2020_Découverte_WinForm
 
                         xr.Read(); //On passe à la balise suivante pour cloturer la lecture car on est dans une boucle while read()
                     }
+                
 
                 xr.Close(); //Fermeture du fichier
             }
 
            return pRep;
         }
+        #endregion
 
+        #region volee
         private void bSerialiserVolee_Click(object sender, EventArgs e)
         {
             Personne p = new Personne(1, "Largo", "Winch", new DateTime(1975, 7, 15));
@@ -253,7 +261,9 @@ namespace ISET_2020_Découverte_WinForm
 
             return pRep;
         }
+        #endregion
 
+        #region universelle
         public class UtilitaireSerialisation //Classe générale pour s'adapter à n'importe quel classe
         {
             public static void Serialiser<T>(string sFichier, T tArg) //se base sur un type générique pour utiliser tout type de données
@@ -307,5 +317,6 @@ namespace ISET_2020_Découverte_WinForm
                     MessageBox.Show("Conquête" + (1 + i).ToString() + " : " + pbis.Lst[i]); //Affiches les éléments de la liste
             }
         }
+        #endregion
     }
 }

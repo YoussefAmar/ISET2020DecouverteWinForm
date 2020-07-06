@@ -56,6 +56,7 @@
             this.tbExpressionReguliere.Name = "tbExpressionReguliere";
             this.tbExpressionReguliere.Size = new System.Drawing.Size(1282, 26);
             this.tbExpressionReguliere.TabIndex = 1;
+            this.tbExpressionReguliere.Text = "\\bc[a-z]*-?[a-z]*\\b";
             this.tbExpressionReguliere.TextChanged += new System.EventHandler(this.tbExpressionReguliere_TextChanged);
             // 
             // cbIsValide
@@ -144,7 +145,7 @@
             this.rtbATraiter.Name = "rtbATraiter";
             this.rtbATraiter.Size = new System.Drawing.Size(1282, 365);
             this.rtbATraiter.TabIndex = 10;
-            this.rtbATraiter.Text = "90";
+            this.rtbATraiter.Text = "Considère considère Client client Cela cela";
             this.rtbATraiter.Leave += new System.EventHandler(this.rtbATraiter_Leave);
             // 
             // EcranExpressionReguliere

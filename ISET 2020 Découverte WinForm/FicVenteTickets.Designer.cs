@@ -94,7 +94,7 @@
             this.lbResultats.ItemHeight = 26;
             this.lbResultats.Location = new System.Drawing.Point(20, 333);
             this.lbResultats.Name = "lbResultats";
-            this.lbResultats.Size = new System.Drawing.Size(458, 264);
+            this.lbResultats.Size = new System.Drawing.Size(522, 264);
             this.lbResultats.TabIndex = 5;
             // 
             // EcranVenteTickets

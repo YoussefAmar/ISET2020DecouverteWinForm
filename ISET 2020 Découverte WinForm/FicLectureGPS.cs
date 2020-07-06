@@ -25,18 +25,18 @@ namespace ISET_2020_Découverte_WinForm
              {
                 try
                 {
-                    if (spGPS.IsOpen)
+                    if (spGPS.IsOpen) //Si le port est ouvert
                     {
-                        spGPS.Close();
+                        spGPS.Close(); //On le ferme
 
                         //Le tick recherche toute les secondes la trames qui passe et quand on arrête de lire on doit aussi arrêter le chrono
                     }
 
-                    spGPS.PortName = cbPortCOM.Text;
+                    spGPS.PortName = cbPortCOM.Text; //Affichage du nom du port dans la combobox
 
                     //Selectionner au combo box, on récupere la valeur affichée dans le combobox
 
-                    spGPS.Open();
+                    spGPS.Open(); //Ouvre une connexion de port serie
                     tChrono.Start();
                     btnLecture.Text = "Arrêter la lecture";
                 }
@@ -59,7 +59,7 @@ namespace ISET_2020_Découverte_WinForm
         {
             //Arrête ou démarre la lecture donc controle le chrono
 
-            tChrono.Enabled = !tChrono.Enabled;
+            tChrono.Enabled = !tChrono.Enabled; //Donne l'etat opposé au chrono quand on enclenche le bouton
 
             if (tChrono.Enabled)
                 btnLecture.Text = "Arrêter la lecture";
@@ -99,7 +99,7 @@ namespace ISET_2020_Découverte_WinForm
             {
                 string sData = spGPS.ReadExisting();
                 //on lit ce que le gps envoi
-                //puis on divise le sdata pour récupérer les trames et ce dont on a besoin
+                //puis on divise les data pour récupérer les trames et ce dont on a besoin
                 string[] sTrames = sData.Split('$');
 
                 for(int i=0; i< sTrames.Length; i++)

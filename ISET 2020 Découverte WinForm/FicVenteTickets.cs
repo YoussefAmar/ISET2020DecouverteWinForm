@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading; //On va manipuler des threads
 using System.IO;
+using System.Diagnostics;
 
 namespace ISET_2020_Découverte_WinForm
 {
@@ -17,8 +18,11 @@ namespace ISET_2020_Découverte_WinForm
         private int nbTickets, nbVendeurs, nbVendus;
         private int[,] ChargeVendeurs;
         List<int> lListe; //liste d'attente avant d'être traité par un vendeur
-        private Mutex mListe; //Un mutex est un objet système qui permet de synchroniser différents processes et assure qu'il y en ai qu'un qui soit exécuter à chaque moment
+        List<Stopwatch> lListeTemps;
+        private Mutex mListe; //Un mutex est un objet système qui permet de synchroniser différents processus et assure qu'il y en ai qu'un qui soit exécuter à chaque moment
         private StreamWriter sw;
+        private float Temps_Moyen = 0;
+        Stopwatch Timer = new Stopwatch();
 
         public EcranVenteTickets()
         {
@@ -29,6 +33,7 @@ namespace ISET_2020_Découverte_WinForm
         {
             sw = new StreamWriter("VerifVentes.txt");
             lListe = new List<int>(); //Liste de reception d'appel
+            lListeTemps = new List<Stopwatch>();
             Thread tAppel = new Thread(Appel); //Fonction qui sera executer dans le thread
             Thread[] tVendeurs;
             int nSomme = 0;
@@ -39,6 +44,7 @@ namespace ISET_2020_Découverte_WinForm
             ChargeVendeurs = new int[nbVendeurs, 2];
             tVendeurs = new Thread[nbVendeurs];
             mListe = new Mutex();
+            
 
             for(int i = 0; i < nbVendeurs; i++)
             {
@@ -61,6 +67,7 @@ namespace ISET_2020_Découverte_WinForm
             }
 
             lbResultats.Items.Add("Total : " + nSomme.ToString());
+            lbResultats.Items.Add("temps moyen d'attentes : " + (Temps_Moyen/(1000*nbVendus) ).ToString() + " secondes ");
 
            sw.Close();
         }
@@ -83,10 +90,15 @@ namespace ISET_2020_Découverte_WinForm
 
                 nbVendus++; //Un nouveau ticket a été vendu
                 lListe.Add(nbVendus); //Ajouter dans la liste l'appel entrant
+
+                lListeTemps.Add(Timer);
+                lListeTemps.Last().Start();
+
                 sw.WriteLine("Appel : " + nbVendus.ToString());
                 mListe.ReleaseMutex(); //Libérer le mutex après utilisation
                 System.Threading.Thread.Sleep(rAppel.Next(5, 20)); //On va attendre un certains temps avant de prendre le prochain appel
             }
+
         }
 
         private void Vente(object i) //On doit savoir quel vendeur (i) traite la vente en argument
@@ -100,6 +112,10 @@ namespace ISET_2020_Découverte_WinForm
 
                 if(lListe.Count > 0) //Si il y a quelqu'un dans la liste on traite la vente
                 {
+                    lListeTemps.First().Stop();
+
+                    Temps_Moyen = Temps_Moyen + lListeTemps.First().Elapsed.Milliseconds;
+
                     tTraitement = rTraitement.Next(60, 100);
 
                     ChargeVendeurs[(int)i, 0]++; //Nombre de vente traitées incrémentée
@@ -107,6 +123,8 @@ namespace ISET_2020_Découverte_WinForm
                     ChargeVendeurs[(int)i, 1] += tTraitement;
 
                     lListe.RemoveAt(0); //On retire la personne de la liste
+
+                    lListeTemps.RemoveAt(0);
 
                     sw.WriteLine("Vente : " + ((int)i).ToString());
                 }

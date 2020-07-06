@@ -50,8 +50,8 @@ namespace ISET_2020_Découverte_WinForm
 
         private void MettreEnEvidence(MatchCollection mc, RichTextBox rtb) //Mets en evidence les occurences obtenues
         {
-            rtb.Select(0, rtb.Text.Length);
-            rtb.SelectionBackColor = Color.Transparent;
+            rtb.Select(0, rtb.Text.Length); //Selectionne tout le texte de la box
+            rtb.SelectionBackColor = Color.Transparent; //Colorie le fond en blanc
 
             foreach(Match m in mc) //pour tout les mots trouvé, on prend l'index d'où ils sont ainsi que leur longueur et on les colores en orange
             {
@@ -91,7 +91,7 @@ namespace ISET_2020_Découverte_WinForm
 
         private void tbExpressionReguliere_TextChanged(object sender, EventArgs e) //Evenement de changement de texte dans la textbox
         {
-            if(cbIsValide.Checked = Validite(tbExpressionReguliere.Text))
+            if(cbIsValide.Checked = Validite(tbExpressionReguliere.Text)) //Si l'expression reg est valide alors la box est checké mais aussi...
             {
                 cbIsCorrespondance.Checked = Correspondance(tbExpressionReguliere.Text, rtbATraiter.Text, cbIsRespectCasse.Checked ? RegexOptions.None : RegexOptions.IgnoreCase); //Respect de la casse checker ou non
 

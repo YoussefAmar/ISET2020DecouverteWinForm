@@ -22,7 +22,7 @@ namespace ISET_2020_Découverte_WinForm
             return Math.Cos(x);
         }
 
-        delegate double FonctionAIntegrer(double x);
+        delegate double FonctionAIntegrer(double x); //type permettant de pointer vers une fonction double ici
 
         public EcranIntegration()
         {

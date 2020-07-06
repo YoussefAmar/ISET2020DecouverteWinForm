@@ -24,7 +24,7 @@ namespace ISET_2020_Découverte_WinForm
         private string sFichier = "";
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
 
-        //It means that the method declared below it is not in .NET - it is in a external (native) DLL fil and the above declaration allows us to us it as if it was a .NET method
+        //It means that the method declared below it is not in .NET - it is in a external (native) DLL file and the above declaration allows us to use it as if it was a .NET method
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         private const int lbLire = 0x0199;
         private const int lbEcrire = 0x019A;
@@ -73,7 +73,7 @@ namespace ISET_2020_Découverte_WinForm
                     string[] aTmp = sLecture.Split('#'); //Indication du séparateur de données pour séparer les éléments de la liste à l'écriture/lecture
                     int n = lbPersonne.Items.Add(aTmp[0]); //Ajout de la personne dans la list box ainsi que comptage du nombre de personne dans la liste
 
-                    //aTmp[0] : "Amar (Monsieur) #1" aTmp[1] : 1
+                    //aTmp[0] : "Amar (Monsieur) " aTmp[1] : 1
 
                     SendMessage(lbPersonne.Handle, lbEcrire, n, int.Parse(aTmp[1]));
                     //Utilisation de la méthode dans user32.dll 
